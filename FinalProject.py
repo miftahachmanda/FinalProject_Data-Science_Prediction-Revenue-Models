@@ -592,7 +592,7 @@ elif menu == "Revenue Prediction":
     # Feature Importance
     # =========================
 
-    st.subheader("Feature Importance (XGBoost)")
+    #st.subheader("Feature Importance (XGBoost)")
 
     importance = models["XGBoost"].feature_importances_
 
@@ -616,7 +616,7 @@ elif menu == "Revenue Prediction":
     # Hyperparameter Tuning
     # =========================
 
-    st.subheader("Hyperparameter Tuning (XGBoost)")
+    # st.subheader("Hyperparameter Tuning (XGBoost)")
 
     param_grid = {
         'n_estimators':[100,200],
@@ -645,7 +645,7 @@ elif menu == "Revenue Prediction":
     # Prediction vs Actual
     # =========================
 
-    st.subheader("Prediction vs Actual")
+    # st.subheader("Prediction vs Actual")
 
     fig, ax = plt.subplots(figsize=(8,6))
 
@@ -662,7 +662,7 @@ elif menu == "Revenue Prediction":
     # Residual Distribution
     # =========================
 
-    st.subheader("Residual Analysis")
+    # st.subheader("Residual Analysis")
 
     residuals = y_test - y_pred
 
@@ -700,13 +700,13 @@ elif menu == "Revenue Forecast":
     df_monthly = df.resample('M', on='order_date')['total_revenue'].sum().to_frame()
     df_monthly.columns = ['revenue']
 
-    st.subheader("Monthly Revenue")
+    #st.subheader("Monthly Revenue")
 
     fig, ax = plt.subplots()
 
     ax.plot(df_monthly.index, df_monthly['revenue'])
 
-    st.pyplot(fig)
+    # st.pyplot(fig)
 
     # =====================
     # ADF Test
@@ -714,10 +714,10 @@ elif menu == "Revenue Forecast":
 
     result = adfuller(df_monthly['revenue'])
 
-    st.subheader("Stationarity Test (ADF)")
+    #st.subheader("Stationarity Test (ADF)")
 
-    st.write("ADF Statistic:", result[0])
-    st.write("p-value:", result[1])
+    #st.write("ADF Statistic:", result[0])
+    #st.write("p-value:", result[1])
 
     # =====================
     # Train Test Split
@@ -809,9 +809,9 @@ elif menu == "Revenue Forecast":
 
     ])
 
-    st.subheader("Model Comparison")
+   # st.subheader("Model Comparison")
 
-    st.dataframe(report)
+    # st.dataframe(report)
 
     # =====================
     # Visualization
@@ -827,7 +827,7 @@ elif menu == "Revenue Forecast":
 
     ax.legend()
 
-    st.pyplot(fig)
+    # st.pyplot(fig)
 
     # =====================
     # Best Model
