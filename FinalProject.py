@@ -469,7 +469,6 @@ elif menu == "Revenue Prediction":
         X, y, test_size=0.2, random_state=42
     )
 
-    st.success(f"Train Size: {x_train.shape[0]} | Test Size: {x_test.shape[0]}")
 
     # =========================
     # Correlation EDA
@@ -488,7 +487,7 @@ elif menu == "Revenue Prediction":
         ax=ax
     )
 
-    st.pyplot(fig)
+
 
     # =========================
     # Feature Engineering
@@ -546,7 +545,6 @@ elif menu == "Revenue Prediction":
     x_train_sel = x_train_final.loc[:, selector.get_support()]
     x_test_sel = x_test_final.loc[:, selector.get_support()]
 
-    st.write("Selected Features:", x_train_sel.columns.tolist())
 
     # =========================
     # Model Training
@@ -588,9 +586,7 @@ elif menu == "Revenue Prediction":
             )
         ])
 
-    st.subheader("Model Evaluation")
 
-    st.dataframe(report)
 
     # =========================
     # Feature Importance
@@ -614,9 +610,7 @@ elif menu == "Revenue Prediction":
         ax=ax
     )
 
-    ax.set_title("Feature Importance")
 
-    st.pyplot(fig)
 
     # =========================
     # Hyperparameter Tuning
@@ -641,7 +635,7 @@ elif menu == "Revenue Prediction":
 
     grid_xgb.fit(x_train_sel, y_train)
 
-    st.write("Best Parameters:", grid_xgb.best_params_)
+
 
     best_model = grid_xgb.best_estimator_
 
@@ -662,10 +656,7 @@ elif menu == "Revenue Prediction":
 
     ax.plot([min_val,max_val],[min_val,max_val],'r--')
 
-    ax.set_xlabel("Actual Revenue")
-    ax.set_ylabel("Predicted Revenue")
 
-    st.pyplot(fig)
 
     # =========================
     # Residual Distribution
@@ -681,9 +672,7 @@ elif menu == "Revenue Prediction":
 
     ax.axvline(0, color="red", linestyle="--")
 
-    st.pyplot(fig)
 
-    st.success("Best Model: XGBoost Tuned with R2 ≈ 0.966")
 
 
 # =========================
