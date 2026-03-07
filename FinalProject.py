@@ -474,7 +474,7 @@ elif menu == "Revenue Prediction":
     # Correlation EDA
     # =========================
 
-    st.subheader("Correlation Matrix")
+    # st.subheader("Correlation Matrix")
 
     fig, ax = plt.subplots(figsize=(10,6))
 
@@ -493,7 +493,7 @@ elif menu == "Revenue Prediction":
     # Feature Engineering
     # =========================
 
-    st.subheader("Feature Engineering")
+    #st.subheader("Feature Engineering")
 
     scaler = StandardScaler()
 
@@ -534,7 +534,7 @@ elif menu == "Revenue Prediction":
     # Feature Selection
     # =========================
 
-    st.subheader("Feature Selection")
+    #st.subheader("Feature Selection")
 
     selector_model = RandomForestRegressor(n_estimators=50, random_state=42)
 
